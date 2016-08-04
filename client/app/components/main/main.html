@@ -2,5 +2,10 @@
     <h1>{{mainCtrl.applicationName}}</h1>
 </header>
 <section>
+    <ul>
+        <li ng-repeat="user in mainCtrl.model.users track by $index">
+            <a ng-bind="user.name"></a>
+        </li>
+    </ul>
     <button ng-click="mainCtrl.click()">Get Request</button>
 </section>

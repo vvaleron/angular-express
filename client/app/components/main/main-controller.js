@@ -1,9 +1,11 @@
 export default /*@ngInject*/ function($http) {
     this.applicationName = 'angular';
-    this.click = function () {
-        $http.get('valera').then((data) => {
-            console.log(data);
-            debugger;
+    this.model = {
+        users: []
+    };
+    this.click = () => {
+        $http.get('users').then((response) => {
+            this.model.users = response.data;
         });
     };
 }

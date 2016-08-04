@@ -1,6 +1,10 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
+const jsonfile = require('jsonfile');
+const path = require('path');
+const join = path.join;
+const resolve = path.resolve;
+const fake_date_path = resolve(__dirname, '../', 'fake_data');
 /* GET home page. */
 
 router.all('*', function(req, res, next) {
@@ -15,6 +19,16 @@ router.all('*', function(req, res, next) {
 
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
+});
+
+router.get('/users', (req, res) => {
+    const file_path = join(fake_date_path, 'users.json');
+
+    jsonfile.readFile(file_path, function (err, obj) {
+        if (err) console.error(err);
+
+        res.send(obj);
+    });
 });
 
 router.get('/valera', function(req, res) {

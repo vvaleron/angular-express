@@ -1,14 +1,15 @@
 var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   plumber = require('gulp-plumber'),
-  livereload = require('gulp-livereload');
+  livereload = require('gulp-livereload'),
+  fakeGenerator = require('./core/services/fake.generator');
 
 
 gulp.task('develop', function () {
   livereload.listen();
   nodemon({
     script: 'bin/www',
-    ext: 'js jade coffee',
+    ext: 'js',
     stdout: false
   }).on('readable', function () {
     this.stdout.on('data', function (chunk) {
@@ -24,3 +25,5 @@ gulp.task('develop', function () {
 gulp.task('default', [
   'develop'
 ]);
+
+gulp.task('fake-data', fakeGenerator.writeToFolder);
