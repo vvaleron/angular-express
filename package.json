@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prestart": "npm run generate-fake",
     "start": "node ./bin/www",
     "generate-fake": "gulp fake-data"
   },
