@@ -32,10 +32,6 @@ module.exports = {
                 loader: 'ng-cache!jade-html'
             },
             {
-                test: /\.tpl\.jade$/,
-                loader: 'ng-cache!jade-html'
-            },
-            {
                 test: /\.scss$/,
                 loaders: ['style', 'css?root=' + __dirname + '/app', 'autoprefixer-loader?browsers=last 2 versions', 'sass'],
             },
@@ -64,7 +60,8 @@ module.exports = {
         extensions: ['', '.js']
     },
     eslint: {
-        failOnError: true
+        failOnError: true,
+        quiet: true
     },
     sassLoader: {
         includePaths: [path.resolve(__dirname, "./app")]

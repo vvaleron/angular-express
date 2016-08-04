@@ -30,6 +30,7 @@ gulp.task("webpack-dev-server", function(callback) {
 
 	new WebpackDevServer(webpack(myConfig), {
 		contentBase: 'app/',
+        quiet: true,
 		stats: {
 			colors: true
 		}
