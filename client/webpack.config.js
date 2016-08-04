@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './app/app.js',
@@ -22,8 +23,17 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /.html$/,
-                loader: 'ngtemplate?relativeTo=' + __dirname +'/app!html?root=' + __dirname + '/app'
+                test: /\.jade$/,
+                exclude: /\.tpl\.jade/,
+                loader: 'jade'
+            },
+            {
+                test: /\.tpl\.jade$/,
+                loader: 'ng-cache!jade-html'
+            },
+            {
+                test: /\.tpl\.jade$/,
+                loader: 'ng-cache!jade-html'
             },
             {
                 test: /\.scss$/,
@@ -38,6 +48,11 @@ module.exports = {
     plugins: [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({ minimize: true, output: { comments: false }}),
+        new HtmlPlugin({
+            title: 'Angular',
+            filename: 'index.html',
+            template: __dirname + '/app/index.jade'
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',

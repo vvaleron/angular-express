@@ -1,0 +1,8 @@
+header
+    h1(ng-bind="mainCtrl.applicationName")
+section
+    ul
+        li(ng-repeat="user in mainCtrl.model.users track by $index")
+            a(ng-bind="user.name")
+    button(ng-click="mainCtrl.click()") Get Request
+

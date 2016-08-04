@@ -1,4 +1,4 @@
-import 'components/main/main.html';
+import mainTpl from './main.jade';
 import 'components/main/main.scss';
 import mainCtrl from 'components/main/main-controller';
 
@@ -9,7 +9,7 @@ export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
         url: '/',
         views: {
             '@': {
-                templateUrl: '/components/main/main.html',
+                template: mainTpl,
                 controller: mainCtrl,
                 controllerAs: 'mainCtrl'
             }
