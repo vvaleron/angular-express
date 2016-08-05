@@ -3,6 +3,13 @@ import angular from 'angular';
 import 'angular-resource';
 import 'angular-ui-router';
 import 'angular-sanitize';
+import 'angular-material/angular-material.css';
+// Icons
+import 'font-awesome/css/font-awesome.css';
+// Animation
+import angularAnimate from 'angular-animate';
+// Materail Design lib
+import angularMaterial from 'angular-material';
 
 import './services/services';
 import './directives/directives';
@@ -26,7 +33,14 @@ function apiInterceptor ($q) {
     };
 }
 
-angular.module('angular', ['ngResource', 'ui.router', 'services', 'directives', 'ngSanitize', 'version'])
+angular.module('angular', [
+    'ngResource',
+    'ui.router',
+    'ngSanitize',
+    angularAnimate,
+    angularMaterial,
+
+    'services', 'directives', 'version'])
 
 .config(mainRoutes)
 .config(function ($httpProvider) {

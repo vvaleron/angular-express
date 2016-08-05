@@ -7,6 +7,9 @@ html(lang="en")
         title angular.js
     body
         div(ng-app="angular")
-            div(ui-view)
+            md-content(flex layout-wrap layout="column")
+
+                div(ui-view="" flex="50")
+
         script(src="http://localhost:9001/webpack-dev-server.js")
         script(src="bundle.js")

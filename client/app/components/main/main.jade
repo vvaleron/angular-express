@@ -1,8 +1,16 @@
+md-toolbar
+    div.md-toolbar-tools(layout="row" layout-align="space-between center")
+        md-button.md-icon-button(aria-label="open menu" ng-click="mainCtrl.click()")
+            i.fa.fa-tasks
+        md-button.md-icon-button(aria-label="open menu" ng-click="mainCtrl.click()")
+            i.fa.fa-gg-circle
+        md-button.md-icon-button(aria-label="open menu" ng-click="mainCtrl.click()")
+            i.fa.fa-bars
 header
-    h1(ng-bind="mainCtrl.applicationName")
-section
-    ul
-        li(ng-repeat="user in mainCtrl.model.users track by $index")
-            a(ng-bind="user.name")
-    button(ng-click="mainCtrl.click()") Get Request
+    h1(ng-bind="mainCtrl.applicationName + ' education'")
+section(layout-wrap layout="column")
 
+    div
+        ul(layout="column" layout-align="space-between center")
+            li(layout="row" ng-repeat="user in mainCtrl.model.users track by $index")
+                a(ng-bind="user.name")

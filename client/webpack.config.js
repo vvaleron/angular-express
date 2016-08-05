@@ -23,6 +23,10 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.html$/,
+                loader: 'file?name=templates/[name]-[hash:6].html'
+            },
+            {
                 test: /\.jade$/,
                 exclude: /\.tpl\.jade/,
                 loader: 'jade'
@@ -36,8 +40,16 @@ module.exports = {
                 loaders: ['style', 'css?root=' + __dirname + '/app', 'autoprefixer-loader?browsers=last 2 versions', 'sass'],
             },
             {
-                test: /\.png$/,
-                loader: 'file-loader'
+                test: /\.css$/,
+                loader: "style!css"
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'file?name=img/[name].[ext]' // inline base64 URLs for <=10kb images, direct URLs for the rest
+            },
+            {
+                test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
+                loader: 'file?name=fonts/[name].[ext]'
             }
         ]
     },
@@ -50,6 +62,7 @@ module.exports = {
             template: __dirname + '/app/index.jade'
         }),
         new webpack.ProvidePlugin({
+            _: 'lodash',
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
@@ -66,5 +79,5 @@ module.exports = {
     sassLoader: {
         includePaths: [path.resolve(__dirname, "./app")]
     },
-    devtool: '#source-map'
+    devtool: 'inline-source-map',
 };
