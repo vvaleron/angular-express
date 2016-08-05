@@ -4,34 +4,13 @@ import 'angular-resource';
 import 'angular-ui-router';
 import 'angular-sanitize';
 import 'angular-material/angular-material.css';
-// Icons
 import 'font-awesome/css/font-awesome.css';
-// Animation
 import angularAnimate from 'angular-animate';
-// Materail Design lib
 import angularMaterial from 'angular-material';
 
-import './services/services';
-import './directives/directives';
-import './services/version-service';
-
-import mainRoutes from './components/main/main.routes';
-function apiInterceptor ($q) {
-    const API_URL = 'http://localhost:3000/';
-
-    return {
-        request: function (config) {
-            const url = config.url;
-            // ignore template requests
-            if (url.substr(url.length - 5) === '.html') {
-                return config || $q.when(config);
-            }
-
-            config.url = API_URL + config.url;
-            return config || $q.when(config);
-        }
-    };
-}
+import CoreServices from './core/services';
+import Transformers from './core/transformers';
+import Components from './components';
 
 angular.module('angular', [
     'ngResource',
@@ -40,10 +19,8 @@ angular.module('angular', [
     angularAnimate,
     angularMaterial,
 
-    'services', 'directives', 'version'])
-
-.config(mainRoutes)
-.config(function ($httpProvider) {
-    $httpProvider.interceptors.push(apiInterceptor);
-});
+    Transformers,
+    CoreServices,
+    Components
+]);
 

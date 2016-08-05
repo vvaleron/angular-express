@@ -1,6 +1,5 @@
 import mainTpl from './main.jade';
-import 'components/main/main.scss';
-import mainCtrl from 'components/main/main-controller';
+import mainCtrl from './main-controller';
 
 export default /*@ngInject*/ function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

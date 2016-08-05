@@ -11,19 +11,4 @@ header {
 
 section {
     padding: 50px;
-
-    .user-info{
-        margin: 4px 0;
-        background-color: #ebf0f2;
-
-        &:hover {
-            background-color: #d2d7d9;
-            cursor: pointer;
-        }
-
-        > img {
-            margin: 8px 0;
-            border: 2px solid #c9ced0;
-        }
-    }
 }

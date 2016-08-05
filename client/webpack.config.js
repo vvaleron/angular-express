@@ -73,8 +73,7 @@ module.exports = {
         extensions: ['', '.js']
     },
     eslint: {
-        failOnError: true,
-        quiet: true
+        failOnError: true
     },
     sassLoader: {
         includePaths: [path.resolve(__dirname, "./app")]

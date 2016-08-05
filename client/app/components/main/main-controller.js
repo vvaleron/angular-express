@@ -1,11 +1,20 @@
-export default /*@ngInject*/ function($http) {
-    this.applicationName = 'angular';
-    this.model = {
-        users: []
-    };
-    this.click = () => {
-        $http.get('users').then((response) => {
-            this.model.users = response.data;
-        });
-    };
+class MainController {
+    /*@ngInject*/
+    constructor (RestService) {
+        this.users = [];
+        this.RestService = RestService;
+    }
+
+    click () {
+        this.getUsers();
+    }
+
+    getUsers () {
+        this.RestService.getUsers()
+            .then((response) => {
+                this.users = response.data;
+            });
+    }
 }
+
+export default MainController;

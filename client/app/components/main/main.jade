@@ -8,10 +8,10 @@ md-toolbar
             i.fa.fa-bars
 section(layout-wrap layout="column")
     md-card
-        md-list(ng-if="mainCtrl.model.users.length")
+        md-list(ng-if="mainCtrl.users.length")
 
             md-list-item.md-2-line(
-            ng-repeat="item in mainCtrl.model.users track by $index")
+            ng-repeat="item in mainCtrl.users track by $index")
 
                 md-checkbox(ng-model="item.done")
                 img(ng-src="{{item.avatar}}?20" class="md-avatar" alt="{{item.name}}")
