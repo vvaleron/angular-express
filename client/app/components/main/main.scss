@@ -12,13 +12,18 @@ header {
 section {
     padding: 50px;
 
-    .image-container {
-        display: inline-block;
-        margin-right: 50px;
-    }
+    .user-info{
+        margin: 4px 0;
+        background-color: #ebf0f2;
 
-    .text-container {
-        display: inline-block;
-        vertical-align: bottom;
+        &:hover {
+            background-color: #d2d7d9;
+            cursor: pointer;
+        }
+
+        > img {
+            margin: 8px 0;
+            border: 2px solid #c9ced0;
+        }
     }
 }

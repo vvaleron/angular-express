@@ -12,7 +12,7 @@ const service = {
 };
 
 function generate (count) {
-    const inerrations = count || 250;
+    const inerrations = count || 30;
     const data = {
         users: [],
         products: [],
