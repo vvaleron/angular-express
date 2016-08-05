@@ -11,9 +11,10 @@ section(layout-wrap layout="column")
         md-list(ng-if="mainCtrl.users.length")
 
             md-list-item.md-2-line(
-            ng-repeat="item in mainCtrl.users track by $index")
+            ng-repeat="item in mainCtrl.users track by $index"
+            ng-class="item.checked ? 'checked' : ''")
 
-                md-checkbox(ng-model="item.done")
+                md-checkbox(ng-model="item.checked" style="visibility: hidden")
                 img(ng-src="{{item.avatar}}?20" class="md-avatar" alt="{{item.name}}")
                 div.md-list-item-text
                     h3(ng-bind="item.name")

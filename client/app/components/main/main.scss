@@ -3,12 +3,10 @@ body {
     font-family: sans-serif;
 }
 
-header {
-    background-color: #EBF0F2;
-    padding: 50px;
-    text-align: center;
-}
-
 section {
     padding: 50px;
+
+    md-list-item.checked {
+        background-color: #f0f0f0;
+    }
 }
