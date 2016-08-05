@@ -7,20 +7,19 @@ md-toolbar
         md-button.md-icon-button(aria-label="open menu" ng-click="mainCtrl.click()")
             i.fa.fa-bars
 section(layout-wrap layout="column")
-
     md-card
         md-list(ng-if="mainCtrl.model.users.length")
-            md-list-item.md-2-line(ng-repeat="item in mainCtrl.model.users track by $index")
+
+            md-list-item.md-2-line(
+            ng-repeat="item in mainCtrl.model.users track by $index")
+
                 md-checkbox(ng-model="item.done")
                 img(ng-src="{{item.avatar}}?20" class="md-avatar" alt="{{item.name}}")
-
                 div.md-list-item-text
                     h3(ng-bind="item.name")
                     p(ng-bind="'phone: ' + item.phone")
-
                 div.md-list-item-text
                     p(ng-bind="'email: ' + item.email")
                     p(ng-bind="'city: ' + item.city")
                     p(ng-bind="'street: ' + item.address")
-
                 md-divider
